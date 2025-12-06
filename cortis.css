@@ -1,0 +1,651 @@
+@font-face {
+    font-family: 'Reglo'; 
+    /* Asegúrate de que esta fuente (GeniusTechno-Regular.otf) esté en la misma carpeta o ajusta la ruta */
+    src: url('GeniusTechno-Regular.otf') format('opentype'); 
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.6;
+    scroll-behavior: smooth; 
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #ccc;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ---------------------------------------------------- */
+/* --- Cabecera y Navegación con Dropdown --- */
+/* ---------------------------------------------------- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: sticky; 
+    top: 0;
+    z-index: 100;
+    background-color: #000;
+    border-bottom: 1px solid #111;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-link {
+    margin-right: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.page-indicator {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* ESTILOS DEL MENÚ DESPLEGABLE (DROPDOWN) */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #111;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    z-index: 10;
+    top: 100%; 
+    left: 0;
+    border-top: 2px solid #fff;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    text-transform: none; 
+    margin-right: 0;
+}
+
+.dropdown-content a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropbtn {
+    padding-right: 10px;
+}
+
+/* ---------------------------------------------------- */
+/* --- SECCIÓN 1: HERO BANNER (CARRUSEL AUTOMÁTICO) --- */
+/* ---------------------------------------------------- */
+.hero-banner {
+    display: flex;
+    min-height: 70vh;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 50px;
+}
+
+.hero-image-container {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    background-color: #111;
+}
+
+.carousel-track {
+    display: flex;
+    width: 300%; 
+    height: 100%;
+    /* ANIMACIÓN CSS AUTOMÁTICA */
+    animation: slideShow 15s infinite ease-in-out;
+}
+
+@keyframes slideShow {
+    /* Muestra Slide 1 */
+    0% { transform: translateX(0%); }
+    25% { transform: translateX(0%); } 
+    
+    /* Transición y Muestra Slide 2 */
+    33.34% { transform: translateX(-33.333%); } 
+    58.34% { transform: translateX(-33.333%); } 
+
+    /* Transición y Muestra Slide 3 */
+    66.67% { transform: translateX(-66.666%); } 
+    91.67% { transform: translateX(-66.666%); } 
+    
+    /* Vuelve a Slide 1 */
+    100% { transform: translateX(0%); }
+}
+
+.carousel-slide {
+    width: 33.333%; 
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.9); /* Filtro de brillo ligero */
+    flex-shrink: 0; 
+}
+
+
+.carousel-controls {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 1.5em;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.hero-content {
+    flex: 1;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-content h1 {
+    /* APLICACIÓN DE LA FUENTE PERSONALIZADA "Reglo" */
+    font-family: 'Reglo', sans-serif;
+    font-size: 7em; 
+    margin-bottom: -25px; 
+    letter-spacing: 4px;
+}
+
+.hero-content p {
+    margin-top: 5px; 
+    margin-bottom: 20px; 
+}
+
+.hero-actions a {
+    display: inline-block;
+    padding: 10px 25px;
+    margin-right: 15px;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-explore {
+    background-color: #fff;
+    color: #000;
+}
+
+.btn-video {
+    background-color: transparent;
+    color: #fff;
+}
+
+
+/* ---------------------------------------------------- */
+/* --- SECCIÓN 2: GALERÍA DE PREVIEW --- */
+/* ---------------------------------------------------- */
+.gallery-preview {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto 80px auto;
+    padding: 0 50px;
+    justify-content: space-between;
+    border-bottom: 1px solid #111;
+    padding-bottom: 20px;
+}
+/* tamaño de imagenes - album, etc*/
+.gallery-item {
+    flex: 1;
+    height: 210px; 
+    margin-right: 20px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0.9;
+    background-color: #222; 
+    background-size: cover;
+    background-position: center; 
+}
+
+.gallery-item::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.overlay-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    z-index: 2;
+}
+
+.gallery-controls {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gallery-controls a {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+
+/* ---------------------------------------------------- */
+/* --- SECCIÓN 3: INTEGRANTES (Grid y Tarjetas) --- */
+/* ---------------------------------------------------- */
+.members-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 50px;
+    background-color: #0e0e0e;
+    position: relative;
+    text-align: center;
+    scroll-margin-top: 100px; 
+}
+
+.members-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    display: inline-block;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+}
+
+.members-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; 
+}
+
+.member-card {
+    width: 200px;
+    text-align: center;
+    background-color: #181818;
+    padding: 15px;
+    transition: transform 0.3s;
+    scroll-margin-top: 100px; 
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.member-photo {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 15px;
+    /* Las imágenes de los miembros están definidas con 'style' en el HTML */
+    background-size: cover;
+    background-position: center top;
+    border: 1px solid #333;
+}
+
+.member-card h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.member-card p {
+    font-size: 0.8em;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+.bio-link {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* --- SECCIÓN DETALLE DE BIOGRAFÍA --- */
+.member-bio-detail {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 50px;
+    background-color: #0e0e0e;
+    position: relative;
+    scroll-margin-top: 100px; 
+    border-left: 5px solid #fff;
+}
+
+.bio-content-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.bio-detail-text {
+    flex: 2;
+}
+
+.bio-detail-text h2 {
+    text-transform: none;
+    font-weight: 400;
+    font-size: 2em;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+/* JUSTIFICACIÓN DE TEXTO */
+.bio-detail-text p {
+    text-align: justify;
+    margin-bottom: 15px; 
+}
+
+.bio-detail-photo {
+    flex: 1;
+    min-width: 250px;
+    height: 350px;
+    /* Las imágenes de las bios están definidas con 'style' en el HTML */
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #333;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 10px 20px;
+    background-color: #333;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+/* ---------------------------------------------------- */
+/* --- SECCIÓN 4: LA BANDA (CUADRÍCULA SEGÚN DISEÑO FINAL) --- */
+/* ---------------------------------------------------- */
+.band-details-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 50px;
+    background-color: #0e0e0e;
+    position: relative;
+}
+
+.band-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 20px;
+}
+
+.band-title .date {
+    font-size: 0.8em;
+    opacity: 0.7;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.band-title h2 {
+    font-size: 3em;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.band-stats, .band-motto {
+    text-align: right;
+}
+
+.stat-label {
+    font-size: 0.8em;
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stats-numbers {
+    font-size: 2.5em;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.band-content-grid {
+    display: grid;
+    /* 3 columnas iguales */
+    grid-template-columns: 1fr 1fr 1fr;
+    /* 2 filas con alturas automáticas */
+    grid-template-rows: auto auto; 
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.grid-item {
+    background-color: #181818;
+    padding: 25px;
+    position: relative;
+    /* Estilos para las cajas de contenido */
+    min-height: 250px; 
+    background-size: cover;
+    background-position: center;
+}
+
+/* 1. IMAGEN ARRIBA IZQUIERDA */
+.featured-image {
+    grid-column: 1 / 2; 
+    grid-row: 1 / 2;     
+    padding: 0; /* Sin padding para la imagen */
+    background-color: transparent;
+    filter: brightness(0.9);
+}
+
+/* 2. PLAYLIST ARRIBA CENTRO */
+.playlist-section {
+    grid-column: 2 / 3; 
+    grid-row: 1 / 2;     
+}
+
+/* 3. STORY CARD 01 ARRIBA DERECHA */
+.story-card {
+    grid-column: 3 / 4; 
+    grid-row: 1 / 2;     
+}
+
+/* 4. BIO 02 ABAJO IZQUIERDA */
+.member-focus-card {
+    grid-column: 1 / 2; 
+    grid-row: 2 / 3;     
+}
+
+/* 5. IMAGEN CON LOGO ABAJO CENTRO Y DERECHA (OCUPA DOS COLUMNAS) */
+.band-image-logo {
+    grid-column: 2 / span 2; /* **¡Abarca las columnas 2 y 3!** */
+    grid-row: 2 / 3;         /* Fila 2 */
+    padding: 0; 
+    background-color: transparent;
+    filter: brightness(0.9);
+}
+
+
+/* Estilos específicos del contenido */
+
+.card-number {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.8em;
+    font-weight: 700;
+    opacity: 0.3;
+}
+
+/* JUSTIFICACIÓN DE TEXTO */
+.story-card p, .member-focus-card p {
+    text-align: justify; 
+    margin-top: 40px; 
+    font-size: 0.9em;
+    line-height: 1.8;
+}
+
+.social-handle {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    font-size: 0.8em;
+    opacity: 0.6;
+}
+
+/* ---------------------------------------------------- */
+/* --- SECCIÓN 5: MÚSICA (TRACKS) y SECCIÓN 6: CONTACTO --- */
+/* ---------------------------------------------------- */
+.tracks-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 50px 80px 50px;
+    position: relative;
+}
+
+.tracks-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.track-card {
+    background-color: #0e0e0e;
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #1a1a1a;
+    position: relative;
+}
+
+/* 🖼️ ESTILO BASE PARA IMAGEN DE FONDO EN LAS TARJETAS DE MÚSICA */
+.track-card::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 150px;
+    background-color: #222;
+    margin-bottom: 10px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* 1. IMAGEN PARA "FaSHioN" */
+.tracks-grid .track-card:nth-child(1)::before {
+    /* RUTA DE IMAGEN 1 */
+    background-image: url('FaSHioN (1).jpg');
+}
+/* 2. IMAGEN PARA "Go!" */
+.tracks-grid .track-card:nth-child(2)::before {
+    /* RUTA DE IMAGEN 2 */
+    background-image: url('gogog.png');
+}
+/* 3. IMAGEN PARA "What You Want" */
+.tracks-grid .track-card:nth-child(3)::before {
+    /* RUTA DE IMAGEN 3 */
+    background-image: url('wantuous.png');
+}
+/* 4. IMAGEN PARA "JoyRide" */
+.tracks-grid .track-card:nth-child(4)::before {
+    /* RUTA DE IMAGEN 4 */
+    background-image: url('joyride.png');
+}
+
+
+.contact-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px 50px;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+/* ---------------------------------------------------- */
+/* --- Media Queries (Responsividad) --- */
+/* ---------------------------------------------------- */
+@media (max-width: 900px) {
+    .header { flex-wrap: wrap; justify-content: center; }
+    .navbar { width: 100%; justify-content: center; flex-wrap: wrap; margin-bottom: 10px; }
+    .dropdown { margin: 0 10px; }
+    .dropdown-content { left: 50%; transform: translateX(-50%); min-width: 120px; }
+
+    .hero-banner { flex-direction: column; padding: 0 20px; }
+    .hero-image-container { width: 100%; height: 300px; }
+    .hero-content { padding: 0; text-align: center; }
+    
+    .band-header { flex-direction: column; align-items: flex-start; }
+    .band-stats, .band-motto { text-align: left; margin-top: 20px; }
+    
+    /* REGLAS PARA LA BANDA EN MÓVILES/TABLETS (APILADAS) */
+    .band-content-grid { 
+        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-rows: auto;
+    }
+    
+    /* Resetear las posiciones de la cuadrícula a automático para que se apilen */
+    .featured-image, .playlist-section, .story-card, .member-focus-card, .band-image-logo {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 250px;
+        padding: 25px;
+        background-color: #181818;
+    }
+    .featured-image, .band-image-logo {
+         padding: 0;
+         min-height: 300px;
+         background-color: transparent;
+    }
+    
+    .member-bio-detail { padding: 30px; }
+    .bio-content-wrapper { flex-direction: column; text-align: center; }
+    .bio-detail-photo { min-width: 100%; height: 300px; }
+    
+    .tracks-grid { grid-template-columns: repeat(2, 1fr); }
+    .member-card { width: 45%; }
+}
+
+@media (max-width: 600px) {
+    .tracks-grid { grid-template-columns: 1fr; }
+    .member-card { width: 90%; }
+}
